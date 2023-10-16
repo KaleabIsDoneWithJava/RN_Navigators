@@ -1,16 +1,25 @@
-import { Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import UserScreen from "./screens/UserScreen";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
 
 const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Welcome">
+      <StatusBar style="light" />
+      <Drawer.Navigator
+        initialRouteName="Welcome"
+        screenOptions={{
+          headerStyle: { backgroundColor: "#EB1090" },
+          headerTintColor: "#fff",
+          drawerActiveBackgroundColor: "#F8BADE",
+          drawerActiveTintColor: "#EB1090",
+        }}
+      >
         <Drawer.Screen name="Welcome" component={WelcomeScreen} />
         <Drawer.Screen name="User" component={UserScreen} />
       </Drawer.Navigator>
