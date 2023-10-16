@@ -1,11 +1,20 @@
 import { Text, StyleSheet } from "react-native";
-import { View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import WelcomeScreen from "./screens/WelcomeScreen";
+import UserScreen from "./screens/UserScreen";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Todo...</Text>
-    </View>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Welcome">
+        <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+        <Drawer.Screen name="User" component={UserScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
 
