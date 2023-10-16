@@ -2,6 +2,7 @@ import { View, Text, Button, StyleSheet } from "react-native";
 
 function UserScreen({ navigation }) {
   function openDrawerHandler() {
+    //Open the drawer navigator
     navigation.toggleDrawer();
   }
 
